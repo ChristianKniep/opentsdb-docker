@@ -13,8 +13,9 @@ Notes
 To put metrics in there issue `while [ true ];do echo "put mymetric.test $(date +%s) ${RANDOM} host=foo"|nc -w1 localhost 4242;sleep 5;done` after accessing the opentsdb container. 
 E.g. `docker exec -ti opentsdbdocker_opentsdb_1 bash`
 
-# Grafana2
+# Grafana2 (user/passwd: admin/admin)
 Grafana2 is a nice little dashboard that can consume a lot of different sources - OpenTSDB among them.
+![](pics/grafana2_graph.png)
 
 To use the grafana dashboard add a datasource "OpenTSDB" using the proxy mode. Grafana will query against the bridge loopback.
 ![](pics/grafana2_source.png)
