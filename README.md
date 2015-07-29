@@ -10,8 +10,11 @@ Notes
    
 # Put metrics
 
-To put metrics in there issue `while [ true ];do echo "put mymetric.test $(date +%s) ${RANDOM} host=foo"|nc -w1 localhost 4242;sleep 5;done` after accessing the opentsdb container. 
-E.g. `docker exec -ti opentsdbdocker_opentsdb_1 bash`
+To put metrics in there issue the following after accessing the opentsdb container. 
+```
+$ docker exec -ti opentsdbdocker_opentsdb_1 bash
+# while [ true ];do echo "put mymetric.test $(date +%s) ${RANDOM} host=foo"|nc -w1 localhost 4242;sleep 5;done
+```
 
 # Grafana2 (user/passwd: admin/admin)
 Grafana2 is a nice little dashboard that can consume a lot of different sources - OpenTSDB among them.
