@@ -34,7 +34,7 @@ EXPOSE 4242
 
 #Install Supervisord
 RUN mkdir -p /var/log/supervisor
-ADD supervisor/*e.conf /etc/supervisor/conf.d/
+ADD supervisor/*.conf /etc/supervisor/conf.d/
 
 #Configure SSHD properly
 RUN mkdir -p /root/.ssh && chmod 0600 /root/.ssh && \
@@ -52,5 +52,5 @@ ADD serf-start.sh serf-join.sh /opt/sei-bin/
 
 VOLUME ["/data/hbase"]
 
-CMD ["/usr/bin/supervisord"]
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
 
